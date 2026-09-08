@@ -1,0 +1,1333 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>EndoConsort AI</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                EC
+            </div>
+
+            <div>
+
+                <h1>
+                    EndoConsort AI
+                </h1>
+
+                <p>
+                    Computational Consortium Design Platform
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="system-status">
+
+            <span id="serverStatus">
+                Checking server...
+            </span>
+
+            <span id="databaseStatus">
+                Checking database...
+            </span>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main-container">
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    DATABASE + COMPUTATIONAL ANALYSIS
+                </span>
+
+
+                <h2>
+
+                    Design Your
+
+                    <span>
+                        Indigenous Bacterial Consortium
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    Select your research requirements step by step.
+                    EndoConsort AI will analyse the available database
+                    records and rank candidate multi-strain consortia.
+
+                </p>
+
+
+                <div class="hero-note">
+
+                    Computational decision-support system.
+                    Results do not replace experimental validation.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROGRESS
+        ================================================== -->
+
+        <section class="wizard-progress">
+
+
+            <div
+                class="progress-step active"
+                data-step="1"
+            >
+
+                <span>
+                    01
+                </span>
+
+                <small>
+                    Plant
+                </small>
+
+            </div>
+
+
+            <div
+                class="progress-step"
+                data-step="2"
+            >
+
+                <span>
+                    02
+                </span>
+
+                <small>
+                    Stress
+                </small>
+
+            </div>
+
+
+            <div
+                class="progress-step"
+                data-step="3"
+            >
+
+                <span>
+                    03
+                </span>
+
+                <small>
+                    Traits
+                </small>
+
+            </div>
+
+
+            <div
+                class="progress-step"
+                data-step="4"
+            >
+
+                <span>
+                    04
+                </span>
+
+                <small>
+                    Strains
+                </small>
+
+            </div>
+
+
+            <div
+                class="progress-step"
+                data-step="5"
+            >
+
+                <span>
+                    05
+                </span>
+
+                <small>
+                    Size
+                </small>
+
+            </div>
+
+
+            <div
+                class="progress-step"
+                data-step="6"
+            >
+
+                <span>
+                    06
+                </span>
+
+                <small>
+                    Priorities
+                </small>
+
+            </div>
+
+
+            <div
+                class="progress-step"
+                data-step="7"
+            >
+
+                <span>
+                    07
+                </span>
+
+                <small>
+                    Analysis
+                </small>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             WIZARD
+        ================================================== -->
+
+        <section class="wizard-container">
+
+
+            <!-- =================================================
+                 STEP 1 — PLANT
+            ================================================== -->
+
+            <div
+                class="wizard-step active"
+                id="step1"
+            >
+
+                <div class="step-number">
+                    STEP 01
+                </div>
+
+
+                <h2>
+                    Select Target Plant
+                </h2>
+
+
+                <p class="step-description">
+
+                    Choose the crop for which you want to design
+                    the bacterial consortium.
+
+                </p>
+
+
+                <div class="selection-area">
+
+
+                    <label for="plantSelect">
+                        Target plant
+                    </label>
+
+
+                    <select id="plantSelect">
+
+                        <option value="">
+                            Loading plants...
+                        </option>
+
+                    </select>
+
+
+                    <div
+                        id="plantInfo"
+                        class="selection-info"
+                    ></div>
+
+
+                </div>
+
+
+                <div class="wizard-actions">
+
+
+                    <!-- IMPORTANT:
+                         Current step = 1 -->
+
+                    <button
+                        type="button"
+                        class="btn primary"
+                        onclick="nextStep(1)"
+                    >
+
+                        Continue →
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 STEP 2 — STRESS
+            ================================================== -->
+
+            <div
+                class="wizard-step"
+                id="step2"
+            >
+
+                <div class="step-number">
+                    STEP 02
+                </div>
+
+
+                <h2>
+                    Select Target Stress
+                </h2>
+
+
+                <p class="step-description">
+
+                    Select the environmental stress condition
+                    that the consortium should be designed for.
+
+                </p>
+
+
+                <div
+                    id="stressOptions"
+                    class="option-grid"
+                >
+
+                    <div class="loading">
+
+                        Loading stress options...
+
+                    </div>
+
+                </div>
+
+
+                <div class="wizard-actions">
+
+
+                    <!-- Current step = 2 -->
+
+                    <button
+                        type="button"
+                        class="btn secondary"
+                        onclick="previousStep(2)"
+                    >
+
+                        ← Back
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="btn primary"
+                        onclick="nextStep(2)"
+                    >
+
+                        Continue →
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 STEP 3 — TRAITS
+            ================================================== -->
+
+            <div
+                class="wizard-step"
+                id="step3"
+            >
+
+                <div class="step-number">
+                    STEP 03
+                </div>
+
+
+                <h2>
+                    Select Desired Traits
+                </h2>
+
+
+                <p class="step-description">
+
+                    Select the functional bacterial traits you
+                    want the consortium to cover.
+
+                </p>
+
+
+                <div class="selection-toolbar">
+
+
+                    <button
+                        type="button"
+                        class="small-btn"
+                        onclick="selectAllTraits()"
+                    >
+
+                        Select All
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="small-btn"
+                        onclick="clearAllTraits()"
+                    >
+
+                        Clear All
+
+                    </button>
+
+
+                </div>
+
+
+                <div
+                    id="traitOptions"
+                    class="checkbox-grid"
+                >
+
+                    <div class="loading">
+
+                        Loading traits...
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="traitSelectionSummary"
+                    class="selection-summary"
+                >
+
+                    0 traits selected
+
+                </div>
+
+
+                <div class="wizard-actions">
+
+
+                    <!-- Current step = 3 -->
+
+                    <button
+                        type="button"
+                        class="btn secondary"
+                        onclick="previousStep(3)"
+                    >
+
+                        ← Back
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="btn primary"
+                        onclick="nextStep(3)"
+                    >
+
+                        Continue →
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 STEP 4 — STRAINS
+            ================================================== -->
+
+            <div
+                class="wizard-step"
+                id="step4"
+            >
+
+                <div class="step-number">
+                    STEP 04
+                </div>
+
+
+                <h2>
+                    Select Bacterial Strains
+                </h2>
+
+
+                <p class="step-description">
+
+                    Choose which indigenous bacterial strains
+                    should be considered during consortium design.
+
+                </p>
+
+
+                <div class="selection-toolbar">
+
+
+                    <button
+                        type="button"
+                        class="small-btn"
+                        onclick="selectAllStrains()"
+                    >
+
+                        Select All
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="small-btn"
+                        onclick="clearAllStrains()"
+                    >
+
+                        Clear All
+
+                    </button>
+
+
+                </div>
+
+
+                <div
+                    id="strainOptions"
+                    class="strain-selection-grid"
+                >
+
+                    <div class="loading">
+
+                        Loading bacterial strains...
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="strainSelectionSummary"
+                    class="selection-summary"
+                >
+
+                    0 strains selected
+
+                </div>
+
+
+                <div class="wizard-actions">
+
+
+                    <!-- Current step = 4 -->
+
+                    <button
+                        type="button"
+                        class="btn secondary"
+                        onclick="previousStep(4)"
+                    >
+
+                        ← Back
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="btn primary"
+                        onclick="nextStep(4)"
+                    >
+
+                        Continue →
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 STEP 5 — SIZE
+            ================================================== -->
+
+            <div
+                class="wizard-step"
+                id="step5"
+            >
+
+                <div class="step-number">
+                    STEP 05
+                </div>
+
+
+                <h2>
+                    Choose Consortium Size
+                </h2>
+
+
+                <p class="step-description">
+
+                    Decide how many bacterial strains should
+                    be combined in each candidate consortium.
+
+                </p>
+
+
+                <div
+                    id="sizeOptions"
+                    class="size-grid"
+                >
+
+
+                    <button
+                        type="button"
+                        class="size-card"
+                        data-size="2"
+                        onclick="selectConsortiumSize(2)"
+                    >
+
+                        <strong>
+                            2
+                        </strong>
+
+                        <span>
+                            Two-strain consortium
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="size-card"
+                        data-size="3"
+                        onclick="selectConsortiumSize(3)"
+                    >
+
+                        <strong>
+                            3
+                        </strong>
+
+                        <span>
+                            Three-strain consortium
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+
+                <div
+                    id="sizeSummary"
+                    class="selection-summary"
+                >
+
+                    No consortium size selected
+
+                </div>
+
+
+                <div class="wizard-actions">
+
+
+                    <!-- Current step = 5 -->
+
+                    <button
+                        type="button"
+                        class="btn secondary"
+                        onclick="previousStep(5)"
+                    >
+
+                        ← Back
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="btn primary"
+                        onclick="nextStep(5)"
+                    >
+
+                        Continue →
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 STEP 6 — PRIORITIES
+            ================================================== -->
+
+            <div
+                class="wizard-step"
+                id="step6"
+            >
+
+                <div class="step-number">
+                    STEP 06
+                </div>
+
+
+                <h2>
+                    Set Analysis Priorities
+                </h2>
+
+
+                <p class="step-description">
+
+                    Tell the computational engine what matters
+                    most in your consortium ranking.
+
+                </p>
+
+
+
+                <!-- TRAIT WEIGHT -->
+
+                <div class="weight-control">
+
+                    <div class="weight-header">
+
+                        <span>
+                            Trait Coverage
+                        </span>
+
+                        <strong id="traitWeightValue">
+                            50%
+                        </strong>
+
+                    </div>
+
+
+                    <input
+                        type="range"
+                        id="traitWeight"
+                        min="0"
+                        max="100"
+                        value="50"
+                        oninput="updateWeights()"
+                    >
+
+                </div>
+
+
+
+                <!-- COMPATIBILITY -->
+
+                <div class="weight-control">
+
+                    <div class="weight-header">
+
+                        <span>
+                            Compatibility
+                        </span>
+
+                        <strong id="compatibilityWeightValue">
+                            30%
+                        </strong>
+
+                    </div>
+
+
+                    <input
+                        type="range"
+                        id="compatibilityWeight"
+                        min="0"
+                        max="100"
+                        value="30"
+                        oninput="updateWeights()"
+                    >
+
+                </div>
+
+
+
+                <!-- DROUGHT -->
+
+                <div class="weight-control">
+
+                    <div class="weight-header">
+
+                        <span>
+                            Drought Evidence
+                        </span>
+
+                        <strong id="droughtWeightValue">
+                            15%
+                        </strong>
+
+                    </div>
+
+
+                    <input
+                        type="range"
+                        id="droughtWeight"
+                        min="0"
+                        max="100"
+                        value="15"
+                        oninput="updateWeights()"
+                    >
+
+                </div>
+
+
+
+                <!-- LITERATURE -->
+
+                <div class="weight-control">
+
+                    <div class="weight-header">
+
+                        <span>
+                            Literature Evidence
+                        </span>
+
+                        <strong id="literatureWeightValue">
+                            5%
+                        </strong>
+
+                    </div>
+
+
+                    <input
+                        type="range"
+                        id="literatureWeight"
+                        min="0"
+                        max="100"
+                        value="5"
+                        oninput="updateWeights()"
+                    >
+
+                </div>
+
+
+
+                <div
+                    id="weightTotal"
+                    class="weight-total"
+                >
+
+                    100%
+
+                </div>
+
+
+
+                <div class="wizard-actions">
+
+
+                    <!-- Current step = 6 -->
+
+                    <button
+                        type="button"
+                        class="btn secondary"
+                        onclick="previousStep(6)"
+                    >
+
+                        ← Back
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="btn primary"
+                        onclick="nextStep(6)"
+                    >
+
+                        Review Selection →
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 STEP 7 — ANALYSIS
+            ================================================== -->
+
+            <div
+                class="wizard-step"
+                id="step7"
+            >
+
+                <div class="step-number">
+                    STEP 07
+                </div>
+
+
+                <h2>
+                    Run Consortium Analysis
+                </h2>
+
+
+                <p class="step-description">
+
+                    Review your selections and run the computational
+                    consortium ranking engine.
+
+                </p>
+
+
+
+                <!-- =================================================
+                     REVIEW
+                ================================================== -->
+
+                <div
+                    id="selectionReview"
+                    class="selection-review"
+                >
+
+
+                    <div class="review-card">
+
+                        <span>
+                            Target Plant
+                        </span>
+
+                        <strong id="reviewPlant">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="review-card">
+
+                        <span>
+                            Target Stress
+                        </span>
+
+                        <strong id="reviewStress">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="review-card">
+
+                        <span>
+                            Selected Traits
+                        </span>
+
+                        <strong id="reviewTraits">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="review-card">
+
+                        <span>
+                            Selected Strains
+                        </span>
+
+                        <strong id="reviewStrains">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="review-card">
+
+                        <span>
+                            Consortium Size
+                        </span>
+
+                        <strong id="reviewSize">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="review-card">
+
+                        <span>
+                            Ranking Weights
+                        </span>
+
+                        <strong id="reviewWeights">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ANALYSIS BUTTON
+                ================================================== -->
+
+                <div class="analysis-launch">
+
+
+                    <button
+                        type="button"
+                        id="designButton"
+                        class="btn analyze"
+                        onclick="runCustomDesign()"
+                    >
+
+                        🧬 Run EndoConsort AI Analysis
+
+                    </button>
+
+
+                    <p>
+
+                        The engine will evaluate available
+                        strain combinations against your
+                        selected criteria.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LOADING
+                ================================================== -->
+
+                <div
+                    id="analysisLoading"
+                    class="analysis-loading hidden"
+                >
+
+                    <div class="loader"></div>
+
+
+                    <h3>
+                        Analysing consortium candidates...
+                    </h3>
+
+
+                    <p>
+
+                        Checking trait coverage, compatibility,
+                        drought-response records and literature
+                        signals.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     RESULT
+                ================================================== -->
+
+                <div
+                    id="analysisResult"
+                    class="analysis-result"
+                ></div>
+
+
+
+                <!-- =================================================
+                     SCIENTIFIC EVIDENCE
+                ================================================== -->
+
+                <div
+                    id="scientificEvidence"
+                    class="scientific-evidence hidden"
+                >
+
+
+                    <div class="evidence-header">
+
+
+                        <div>
+
+                            <span class="evidence-label">
+                                LIVE SCIENTIFIC EVIDENCE
+                            </span>
+
+
+                            <h3>
+                                Relevant Research Literature
+                            </h3>
+
+
+                            <p>
+
+                                Scientific publications retrieved
+                                dynamically from Europe PMC based on
+                                your selected plant, stress, traits
+                                and bacterial strain.
+
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            id="evidenceSource"
+                            class="evidence-source"
+                        >
+
+                            Europe PMC
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- Evidence Loading -->
+
+                    <div
+                        id="evidenceLoading"
+                        class="evidence-loading hidden"
+                    >
+
+                        Searching scientific literature...
+
+                    </div>
+
+
+
+                    <!-- Evidence Results -->
+
+                    <div
+                        id="evidenceList"
+                        class="evidence-list"
+                    ></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     REPORT
+                ================================================== -->
+
+                <div
+                    id="reportSection"
+                    class="report-section hidden"
+                >
+
+
+                    <h3>
+                        Analysis Report
+                    </h3>
+
+
+                    <p>
+
+                        Your computational analysis and scientific
+                        evidence summary are ready.
+
+                    </p>
+
+
+                    <button
+                        type="button"
+                        class="btn report"
+                        onclick="downloadReport()"
+                    >
+
+                        Download PDF Report
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     BACK TO STEP 6
+                ================================================== -->
+
+                <div class="wizard-actions">
+
+
+                    <!-- Current step = 7 -->
+
+                    <button
+                        type="button"
+                        class="btn secondary"
+                        onclick="previousStep(7)"
+                    >
+
+                        ← Modify Selection
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             SCIENTIFIC NOTICE
+        ================================================== -->
+
+        <section class="scientific-notice">
+
+
+            <strong>
+                Scientific interpretation
+            </strong>
+
+
+            <p>
+
+                EndoConsort AI produces computational rankings
+                from database records and publicly available
+                scientific evidence. A high computational score
+                does not prove biological efficacy, strain
+                compatibility in vivo, greenhouse performance,
+                or field performance. Experimental validation
+                remains necessary.
+
+            </p>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+
+        <div>
+            EndoConsort AI
+        </div>
+
+
+        <div>
+            Database-driven computational design platform
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="app.js"></script>
+
+
+</body>
+
+</html>
+

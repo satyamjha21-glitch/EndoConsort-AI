@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EndoConsort AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div>
+        <div class="brand">ENDOCONSORT AI</div>
+        <h1>Indigenous Bacterial Consortium Designer</h1>
+        <p>
+            Database-driven computational platform for designing multi-strain
+            endophytic bacterial consortia for drought resilience in
+            <i>Vigna radiata</i>.
+        </p>
+    </div>
+
+    <div class="system-status">
+        <div id="serverStatus" class="status offline">● Checking server...</div>
+        <div id="databaseStatus" class="status offline">● Checking database...</div>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <div>
+            <span class="eyebrow">COMPUTATIONAL DESIGN PLATFORM</span>
+            <h2>Consortium discovery for drought resilience</h2>
+            <p>
+                Evaluate recorded bacterial traits, drought-response information
+                and computational compatibility to rank candidate combinations.
+            </p>
+        </div>
+
+        <button class="primary large" onclick="designConsortium()">
+            Design Consortium →
+        </button>
+    </section>
+
+    <section class="dashboard">
+
+        <div class="stat-card">
+            <span class="stat-label">Target Plants</span>
+            <strong id="plantCount">—</strong>
+            <small>Database records</small>
+        </div>
+
+        <div class="stat-card">
+            <span class="stat-label">Bacterial Strains</span>
+            <strong id="bacteriaCount">—</strong>
+            <small>Candidate isolates</small>
+        </div>
+
+        <div class="stat-card">
+            <span class="stat-label">Recorded Traits</span>
+            <strong id="traitCount">—</strong>
+            <small>Functional records</small>
+        </div>
+
+        <div class="stat-card">
+            <span class="stat-label">Evidence Sources</span>
+            <strong id="evidenceCount">—</strong>
+            <small>Literature records</small>
+        </div>
+
+    </section>
+
+    <section class="panel">
+        <div class="panel-header">
+            <div>
+                <span class="section-number">01</span>
+                <h2>Target Plant</h2>
+                <p>Current host selected for consortium design.</p>
+            </div>
+        </div>
+
+        <div id="plants" class="content-area">
+            Loading plant data...
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-header">
+            <div>
+                <span class="section-number">02</span>
+                <h2>Bacterial Candidates</h2>
+                <p>Database-recorded indigenous endophytic bacterial strains.</p>
+            </div>
+
+            <button onclick="loadBacteria()">Refresh</button>
+        </div>
+
+        <div id="bacteria" class="bacteria-grid">
+            Loading bacterial data...
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-header">
+            <div>
+                <span class="section-number">03</span>
+                <h2>Functional Traits</h2>
+                <p>Traits recorded for available bacterial strains.</p>
+            </div>
+
+            <button onclick="loadBacterialTraits()">Load Traits</button>
+        </div>
+
+        <div id="bacterialTraits" class="content-area">
+            Click "Load Traits".
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-header">
+            <div>
+                <span class="section-number">04</span>
+                <h2>Trait Coverage</h2>
+                <p>Distribution of functional traits across candidate strains.</p>
+            </div>
+
+            <button onclick="loadTraitMatrix()">Load Matrix</button>
+        </div>
+
+        <div id="traitMatrix" class="content-area">
+            Click "Load Matrix".
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-header">
+            <div>
+                <span class="section-number">05</span>
+                <h2>Required Traits</h2>
+                <p>Functional traits used by the ranking algorithm.</p>
+            </div>
+
+            <button onclick="loadRequiredTraits()">Load Required Traits</button>
+        </div>
+
+        <div id="requiredTraits" class="content-area">
+            Click to retrieve required traits.
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-header">
+            <div>
+                <span class="section-number">06</span>
+                <h2>Drought Response</h2>
+                <p>Database-recorded drought-response information.</p>
+            </div>
+
+            <button onclick="loadDroughtResponse()">Load Data</button>
+        </div>
+
+        <div id="drought" class="content-area">
+            Click to retrieve drought-response records.
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-header">
+            <div>
+                <span class="section-number">07</span>
+                <h2>Evidence Summary</h2>
+                <p>Literature and evidence supporting recorded traits.</p>
+            </div>
+
+            <button onclick="loadEvidence()">Load Evidence</button>
+        </div>
+
+        <div id="evidence" class="content-area">
+            Click "Load Evidence".
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-header">
+            <div>
+                <span class="section-number">08</span>
+                <h2>Compatibility Analysis</h2>
+                <p>Computational compatibility between bacterial strains.</p>
+            </div>
+
+            <button onclick="loadCompatibility()">Check Compatibility</button>
+        </div>
+
+        <div id="compatibility" class="content-area">
+            No compatibility analysis loaded yet.
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-header">
+            <div>
+                <span class="section-number">09</span>
+                <h2>Consortium Candidates</h2>
+                <p>All computationally evaluated bacterial combinations.</p>
+            </div>
+
+            <button onclick="loadCandidates()">Load Candidates</button>
+        </div>
+
+        <div id="candidates" class="content-area">
+            No candidate data loaded yet.
+        </div>
+    </section>
+
+    <section class="design-section">
+
+        <div class="design-header">
+            <div>
+                <span class="eyebrow">CORE COMPUTATIONAL MODULE</span>
+                <h2>Consortium Design</h2>
+                <p>
+                    Ranking based on trait coverage, drought-response records
+                    and compatibility.
+                </p>
+            </div>
+
+            <button class="primary large" onclick="designConsortium()">
+                Calculate Best Consortium
+            </button>
+        </div>
+
+        <div id="consortiumResult" class="design-result">
+            No consortium calculation performed yet.
+        </div>
+
+    </section>
+
+    <section class="panel">
+        <div class="panel-header">
+            <div>
+                <span class="section-number">10</span>
+                <h2>Consortium Coverage</h2>
+                <p>Functional trait coverage of evaluated combinations.</p>
+            </div>
+
+            <button onclick="loadConsortiumCoverage()">
+                Calculate Coverage
+            </button>
+        </div>
+
+        <div id="consortiumCoverage" class="content-area">
+            No coverage calculation performed yet.
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-header">
+            <div>
+                <span class="section-number">11</span>
+                <h2>Compatibility Validation</h2>
+                <p>Review of recorded computational compatibility.</p>
+            </div>
+
+            <button onclick="validateCompatibility()">Validate</button>
+        </div>
+
+        <div id="compatibilityValidation" class="content-area">
+            No validation performed yet.
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-header">
+            <div>
+                <span class="section-number">12</span>
+                <h2>Database Review</h2>
+                <p>Review bacterial records for possible duplicates.</p>
+            </div>
+
+            <button onclick="loadDuplicateReview()">Review Records</button>
+        </div>
+
+        <div id="duplicateReview" class="content-area">
+            No duplicate review performed yet.
+        </div>
+    </section>
+
+    <section class="notice">
+        <div class="notice-icon">!</div>
+
+        <div>
+            <strong>Scientific interpretation notice</strong>
+
+            <p>
+                EndoConsort AI provides computational rankings from
+                database-recorded information. Results do not establish
+                experimental biological efficacy, microbial interaction,
+                greenhouse performance or field performance.
+                Experimental validation is required.
+            </p>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <strong>EndoConsort AI</strong>
+    <span>Computational Database Platform</span>
+    <span>
+        Target organism: <i>Vigna radiata</i>
+    </span>
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+</html>
