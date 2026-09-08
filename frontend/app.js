@@ -3,7 +3,7 @@
 // Frontend Application Logic
 // ============================================================
 
-const API_BASE = "http://127.0.0.1:8002";
+const API_BASE = "https://endoconsort-ai.onrender.com";
 
 
 // ============================================================
